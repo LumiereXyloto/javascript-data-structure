@@ -7,7 +7,7 @@ import { Node } from './btree'
  * @return {Node}
 */
 
-function buildTreeByPreAndIn (preorder, inorder) {
+export function buildTreeByPreAndIn (preorder, inorder) {
   if (!preorder.length && !inorder.length) {
     return null
   }
@@ -35,7 +35,7 @@ function buildTreeByPreAndIn (preorder, inorder) {
  * @param {number[]} inOrder
  * @return {Node}
  */
-function buildTreeByPostAndIn (postOrder, inOrder) {
+export function buildTreeByPostAndIn (postOrder, inOrder) {
   if (!postOrder.length && !inOrder.length) {
     return null
   }

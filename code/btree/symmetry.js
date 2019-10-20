@@ -1,6 +1,6 @@
 // 一棵树否为对称二叉树
 
-function isSymmetrical (root) {
+export function isSymmetrical (root) {
   if (root) {
     return isSymmetricalTree(root.left, root.right)
   }
