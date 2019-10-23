@@ -60,4 +60,38 @@ export class List {
       pre.next = pre.next.next
     }
   }
+
+  // 链表去重
+  deleteDuplicates () {
+    let current = this.head
+    while (current && current.next) {
+      if (current.val === current.next.val) {
+        current.next = current.next.next
+      } else {
+        current = current.next
+      }
+    }
+  }
+
+  // 正向遍历链表，返回数组
+  positiveTraverse () {
+    let arr = []
+    let current = this.head
+    while (current !== null) {
+      arr.push(current.val)
+      current = current.next
+    }
+    return arr
+  }
+
+  // 逆向遍历链表，返回数组
+  negativeTraverse () {
+    let arr = []
+    let current = this.head
+    while (current) {
+      arr.unshift(current.val)
+      current = current.next
+    }
+    return arr
+  }
 }
