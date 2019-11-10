@@ -4,8 +4,7 @@ export function exchangeList (head) {
   if (head === null || head.next === null) {
     return head
   }
-  let next = head.next
-  head.next = exchangeList(next.next)
-  next.next = head
-  return next
+  head.next = exchangeList(head.next.next)
+  head.next.next = head
+  return head.next
 }
