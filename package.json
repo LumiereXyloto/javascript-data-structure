@@ -8,13 +8,12 @@
     "commit": "npx git-cz"
   },
   "repository": {
-    "type": "git",
-    "url": "https://git.imooc.com/coding-315/leetcode.git"
+    "type": "git"
   },
   "keywords": [
     "leetcode"
   ],
-  "author": "cuc_ygh@163.com",
+  "author": "",
   "license": "Apache-2.0",
   "dependencies": {
     "@babel/core": "7.1.2",

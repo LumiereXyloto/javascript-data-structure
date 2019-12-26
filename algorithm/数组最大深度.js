@@ -29,5 +29,16 @@ function getDepth(arr) {
   return max
 }
 
+function getDepth2(arr, num = 1) {
+  let max = num
+  for(let i of arr) {
+    if (Array.isArray(i)) {
+      max = Math.max(max, getDepth2(i, num + 1))
+    }
+  }
+  return max
+}
+
 console.log(getDepth(arr1))
 console.log(getDepth(arr2))
+console.log(getDepth2(arr2))
