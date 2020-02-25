@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    img {
+      width: 100%;
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <img src="default.jpg" data-src="https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g5/M00/01/0E/ChMkJ1bKwf2IatSoAALNor2rRq4AALGhAG_TloAAs26368.jpg">
+  <img src="default.jpg" data-src="https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g5/M00/01/0E/ChMkJlbKwf2IQr7LAAKWzU451S4AALGhAHCHBQAApbl727.jpg">
+  <img src="default.jpg" data-src="https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g5/M00/01/0E/ChMkJlbKwf2IZpUWAALW1amR55oAALGhAHEsvkAAtbt162.jpg">
+  <img src="default.jpg" data-src="https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g5/M00/01/0E/ChMkJlbKwf2IbXRwAALUCuLki1AAALGhAHHieYAAtQi595.jpg">
+  <script>
+  // let imgs = document.getElementsByTagName("img");
+  // const observer = new IntersectionObserver(entries => {
+  //   //entries 是被观察的元素集合
+  //   for(let i = 0, len = entries.length; i < len; i++) {
+  //     let entry = entries[i];
+  //     // 通过这个属性判断是否在视口中
+  //     if(entry.isIntersecting) {
+  //       const imgElement = entry.target;
+  //       imgElement.src = imgElement.getAttribute("data-src");
+  //       observer.unobserve(imgElement);
+  //     }
+  //   }
+  // })
+  // Array.from(imgs).forEach(item => observer.observe(item));
+    let imgs = document.getElementsByTagName("img");
+    let num = imgs.length;
+    let count = 0;//计数器，从第一张图片开始计
+
+    lazyload();//首次加载别忘了显示图片
+
+    window.addEventListener('scroll', throttle(lazyload, 200));
+
+    function lazyload() {
+      console.log('200ms触发一次scroll绑定的lazyload')
+      let viewHeight = document.documentElement.clientHeight;//视口高度
+      let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;//滚动条的高度
+      for(let i = count; i <num; i++) {
+        // 如果滚动高度加视口高度大于元素距离顶部的高度，即元素现在已经出现在视口中
+        if(imgs[i].offsetTop < scrollTop + viewHeight) {
+          if(imgs[i].getAttribute("src") !== "default.jpg") continue;
+          imgs[i].src = imgs[i].getAttribute("data-src");
+          count ++;
+        }
+      }
+    }
+
+    // function throttle(fn, interval) {
+    //   let canRun = true; // 通过闭包保存一个标记
+    //   return function () {
+    //     if (!canRun) return; // 在函数开头判断标记是否为true，不为true则return
+    //     canRun = false; // 立即设置为false
+    //     setTimeout(() => { // 将外部传入的函数的执行放在setTimeout中
+    //       fn.apply(this, arguments);
+    //       // 最后在setTimeout执行完毕后再把标记设置为true(关键)表示可以执行下一次循环了。当定时器没有执行的时候标记永远是false，在开头被return掉
+    //       canRun = true;
+    //     }, interval);
+    //   };
+    // }
+  </script>
+</body>
+</html>

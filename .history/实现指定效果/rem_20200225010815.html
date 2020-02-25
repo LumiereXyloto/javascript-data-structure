@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name='viewport' content='width=device-width,initial-scale=1,user-scale=no' />
+  <title>Document</title>
+  <style>
+    .myDiv {
+      width: 100%;
+      height: 2rem;
+      font-size: .64rem;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body style="margin: 0">
+  <div class="myDiv">hahahaha</div>
+  <script>
+    // 假设iPhone6设计图 750px，1rem 就是设计图中的 50px，对应设备css像素 25px
+    function changeRootFontSize() {
+      document.documentElement.style.fontSize = document.documentElement.clientWidth / 15 + 'px';
+    }
+    window.addEventListener('resize', changeRootFontSize)
+    changeRootFontSize()
+  </script>
+</body>
+</html>

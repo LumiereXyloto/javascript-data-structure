@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .wrap1 {
+      width: 200px;
+      height: 200px;
+      background: yellow;
+      position: relative;
+    }
+    .wrap1 .center {
+      width: 100px;
+      height: 100px;
+      background: green;
+      margin: auto;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+
+    .wrap2{
+      width: 200px;
+      height: 200px;
+      background: yellow;
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+    }
+    .center2{
+      display: inline-block;
+      vertical-align: middle;
+      width: 100px;
+      height: 100px;
+      background: green;
+    }
+
+    .wrap3 {
+      position: relative;
+      background: yellow;
+      width: 200px;
+      height: 200px;}
+  
+    .center3 {
+      position: absolute;
+      background: green;
+      top:50%;
+      left:50%;
+      /* 左上角在中心 */
+      -webkit-transform:translate(-50%,-50%);
+      transform:translate(-50%,-50%);
+      /* 移动自身的一半 */
+      width: 100px;
+      height: 100px;
+    }
+
+    .wrap4 {
+      background: yellow;
+      width: 200px;
+      height: 200px;
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+    }
+
+    .center4 {
+      background: green;
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap1">
+    <div class="center"></div>
+  </div>
+  <div class="wrap2">
+    <div class="center2"></div>
+  </div>
+  <div class="wrap3">
+    <div class="center3"></div>
+  </div>
+  <div class="wrap4">
+    <div class="center4"></div>
+  </div>
+</body>
+</html>
